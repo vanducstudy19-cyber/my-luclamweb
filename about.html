@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lục Lam - Quản Lý Xuất Kho</title>
+   <link rel="icon" type="image/png" href="/image/[Icon] Logo Trắng.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #e2f0ff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #2c3e50;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header img.logo {
+      height: 70px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size:20ren;
+      color: #3b82f6;
+    }
+    .card-ll {
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      border: none;
+    }
+    h3 {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    table thead {
+      background: #3a7ca5;
+      color: white;
+    }
+    .btn-ll {
+      background: #6bb8de;
+      color: white;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .btn-ll:hover {
+      background: #3a7ca5;
+    }
+    .logo{
+        border: 1px solid rgba(96, 169, 247, 0.2); /* viền mờ xanh nhạt */
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* hiệu ứng phát sáng */
+        backdrop-filter: blur(6px);       /* tạo hiệu ứng kính mờ (glass) */
+    }
+  </style>
+</head>
+<body class="container py-4">
+
+  <!-- Header -->
+  <header>
+    <img src="image/[Icon] Logo Trắng.jpg" alt="Logo Lục Lam" class="logo rounded-circle">
+    <h1>📦 Lục Lam - Quản Lý Xuất Kho - 163 Huỳnh Văn Bánh</h1>
+  </header>
+
+  <!-- Banner Xuất kho -->
+ <div class="d-flex justify-content-center my-3">
+  <img src="image/kiemkho.jpg" alt="Xuất kho" class="img-fluid rounded shadow" style="max-width: 100%;">
+</div>
+
+  <!-- Form xuất kho -->
+  <form id="exportForm" class="card-ll p-4 bg-white mb-4">
+    <h3>Xuất kho tại đây</h3>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label class="form-label">📅 Ngày (dd/mm/yyyy)</label>
+        <input type="text" class="form-control" id="exportDate" required>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">🥬 Nguyên liệu</label>
+        <select class="form-select" id="item" required>
+          <option value="">-- Chọn nguyên liệu --</option>
+          <option value="">-- Chọn mặt hàng --</option>
+            <option>Trân Châu Olong Nhài</option>
+            <option>Muối</option>
+            <option>Trân Châu Đen Dẻo</option>
+            <option>Atiso Đỏ</option>
+            <option>Cốt Hoa Dâm Bụt</option>
+            <option>Cốt Lava</option>
+            <option>Đường Cát</option>
+            <option>Trà Bá Tước 500gr</option>
+            <option>Trà Chai 500gr</option>
+            <option>Trà Lavender 60gr</option>
+            <option>Trà Olong Hoa Hồng 500gr</option>
+            <option>Trà Red Lava 500gr</option>
+            <option>Trà Olong Hoa Nhài 500gr</option>
+            <option>Bột Sữa 1 kg</option>
+            <option>Ly giấy in 2 lớp</option>
+            <option>Ly trong</option>
+            <option>Trà Đào 500gr</option>
+            <option>Trà Olong Cám 500gr</option>
+            <option>Trà Caramel 500gr</option>
+            <option>Trà Olong Quế Mộc 500gr</option>
+            <option>Combo Cúc</option>
+            <option>Đào Lon</option>
+            <option>Vải Lon</option>
+            <option>Nươc cốt Chanh 5 lít</option>
+            <option>Nước cốt Tắc 5 lít</option>
+            <option>Ly cà phê</option>
+            <option>Nước đường 20L/ thùng</option>
+            <option>Sirup Sakura Không Chua</option>
+            <option>Sirup Sakura Chua</option>
+            <option>Sirup Vải</option>
+            <option>Mứt Sakura</option>
+            <option>Bột Matcha</option>
+            <option>Sữa tươi 1L</option>
+            <option>Kem béo (Rích Lùn)</option>
+            <option>Trân châu Olong</option>
+            <option>Trân châu Matha Phô Mai</option>
+            <option>Trân châu Sakura</option>
+            <option>TRân châu Trắng</option>
+            <option>Thạch Củ Năng Hồng</option>
+            <option>Cà Phê Xay</option>
+            <option>Sữa đặc Phương Nam</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">⚖️ Đơn vị</label>
+        <select class="form-select" id="unit" required>
+          <option value="">-- Chọn đơn vị --</option>
+            <option>Bịch</option>
+            <option>Cái</option>
+            <option>Hộp</option>
+            <option>Can</option>
+            <option>Chai</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">🔢 Số lượng</label>
+        <input type="number" class="form-control" id="quantity" required>
+      </div>
+      <div class="col-md-2 d-flex align-items-end">
+        <button type="submit" class="btn-ll w-100">Xuất kho</button>
+      </div>
+    </div>
+    <div id="exportError" class="alert alert-danger mt-3 d-none">
+      ❌ Ngày không hợp lệ hoặc thiếu thông tin!
+    </div>
+  </form>
+
+  <!-- Bảng lịch sử -->
+  <div class="card-ll p-4 bg-white">
+    <h3 class="mb-3">📑 Lịch sử xuất kho</h3>
+    <table id="exportTable" class="table table-bordered table-hover mb-0">
+      <thead>
+        <tr>
+          <th>Ngày</th>
+          <th>Nguyên liệu</th>
+          <th>Đơn vị</th>
+          <th>Số lượng</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- dữ liệu load từ localStorage -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'll_export_history_v1';
+    const exportForm = document.getElementById('exportForm');
+    const exportTableBody = document.querySelector('#exportTable tbody');
+    const exportError = document.getElementById('exportError');
+
+    // Check ngày dd/mm/yyyy
+    function parseDDMMYYYY(str){
+      const m = str.trim().match(/^([0-3]?\d)\/(0?\d|1[0-2])\/(\d{4})$/);
+      if(!m) return {valid:false};
+      let d = parseInt(m[1],10),
+          mo = parseInt(m[2],10),
+          y = parseInt(m[3],10);
+      const dt = new Date(y, mo-1, d);
+      if(dt.getFullYear()===y && dt.getMonth()===mo-1 && dt.getDate()===d){
+        return {valid:true, d, m:mo, y, date:dt};
+      }
+      return {valid:false};
+    }
+
+    function loadExportHistory(){
+      exportTableBody.innerHTML = "";
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      data.forEach((row, i) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${row.date}</td>
+          <td>${row.item}</td>
+          <td>${row.unit}</td>
+          <td>${row.quantity}</td>
+          <td><button class="btn btn-sm btn-danger" onclick="deleteRow(${i})">❌ Xoá</button></td>
+        `;
+        exportTableBody.appendChild(tr);
+      });
+    }
+
+    exportForm.addEventListener("submit", e=>{
+      e.preventDefault();
+      const dateStr = document.getElementById("exportDate").value;
+      const item = document.getElementById("item").value;
+      const unit = document.getElementById("unit").value;
+      const qty = document.getElementById("quantity").value;
+
+      const parsed = parseDDMMYYYY(dateStr);
+      if(!parsed.valid || !item || !unit || !qty){
+        exportError.classList.remove("d-none");
+        return;
+      }
+      exportError.classList.add("d-none");
+
+      const newRow = {date:dateStr, item, unit, quantity:qty};
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      data.push(newRow);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      loadExportHistory();
+      exportForm.reset();
+    });
+
+    function deleteRow(index){
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      data.splice(index,1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      loadExportHistory();
+    }
+
+    window.addEventListener("DOMContentLoaded", loadExportHistory);
+  </script>
+</body>
+</html>
